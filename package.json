@@ -1,0 +1,22 @@
+{
+  "name": "pandora-ui-wechat",
+  "version": "1.0.0",
+  "description": "wechat miniprogram components library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pandolajs/pandora-ui-wechat.git"
+  },
+  "keywords": [
+    "wechat"
+  ],
+  "author": "cheerylong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pandolajs/pandora-ui-wechat/issues"
+  },
+  "homepage": "https://github.com/pandolajs/pandora-ui-wechat#readme"
+}
