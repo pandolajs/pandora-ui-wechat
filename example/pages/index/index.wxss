@@ -1,0 +1,27 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+}
+.logo image {
+  width: 200rpx;
+  max-height: 100rpx;
+}
+.container {
+  border-bottom: 1px #ddd solid;
+}
+.container .cell {
+  display: flex;
+  height: 80rpx;
+  border-top: 1rpx #ddd solid;
+  align-items: center;
+  padding-left: 40rpx;
+}
+.container .cell:nth-child(2) {
+  margin-top: 20rpx;
+}
+
+.cell:active {
+  background-color: #eee;
+}
