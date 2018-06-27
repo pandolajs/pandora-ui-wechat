@@ -1,0 +1,1 @@
+.m-layer{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.2);box-shadow:0 0 850rpx 10rpx rgba(0,0,0,.8) inset;z-index:1;transition:all .4s ease-in-out}.m-layer.hidden{visibility:hidden;opacity:0}.m-layer.visible{visibility:visible;opacity:1}
