@@ -1,11 +1,11 @@
-// pages/index/index.js
+// pages/test/test.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    show: true
+  
   },
 
   /**
@@ -62,10 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  showDrawer() {
-    this.setData({
-      show: !this.data.show
-    })
   }
 })

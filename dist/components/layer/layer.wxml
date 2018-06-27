@@ -1,0 +1,11 @@
+<!--
+  @fileoverview 蒙层组件模板
+  @author houquan | houquan@babytree-inc.com
+  @version 1.0.0 | 2018-04-12    // 初始版本
+-->
+
+<view class='m-layer{{hide ? " hidden" : " visible"}}'
+  catch:touchmove='onTouchMoveHandler' 
+  catch:tap='onTapHandler'>
+  <slot></slot>
+</view>

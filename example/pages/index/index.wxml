@@ -1,12 +1,3 @@
-<!--index.wxml-->
-<view>
-  <view class='logo'>
-    <image src='../../lib/image/logo.png' mode='aspectFit'></image>
-  </view>
-  <view class='container'>
-    <text>组件列表</text>
-    <view class='cell' wx:for="{{list}}" wx:key="{{index}}">
-      {{item.name}}({{item.des}})
-    </view>
-  </view>
-</view>
+<!--pages/index/index.wxml-->
+<button bindtap='showDrawer'>drawer</button>
+<drawer show="{{show}}"></drawer>
