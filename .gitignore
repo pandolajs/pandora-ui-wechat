@@ -1,20 +1,13 @@
-<<<<<<< HEAD
 .DS_Store
 .idea
-build
-coverage
 node_modules
 npm-debug.log
 yarn-error.log
 .vscode
 yarn.lock
 package-lock.json
-=======
 *.log*
 .cache
-.DS_Store
-.idea
 .vscode
-node_modules
-example/dist
->>>>>>> develop
+example/components
+
