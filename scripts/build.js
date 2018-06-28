@@ -5,6 +5,7 @@ const autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] })
 const rename = require('gulp-rename')
 const cssmin = require('gulp-clean-css')
 const fs = require('fs-extra')
+const plumber = require('gulp-plumber')
 const config = require('./config')
 const util = require('./utils')
 const isProd = process.env.NODE_ENV === 'prod'
@@ -22,9 +23,8 @@ gulp.task('copy', () => {
 
 gulp.task('css', () => {
     return gulp.src(config.src + '/components/**/*.less')
-        .pipe(less({
-            plugins: [autoprefix]
-        }))
+        .pipe(plumber())
+        .pipe(less({plugins: [autoprefix]}))
         .pipe(cssmin())
         .pipe(rename((path) => {
             path.extname = '.wxss'
@@ -39,12 +39,20 @@ if (!isProd) {
     watcher.on('change', function(event) {
         let currentComponentDir = util.getPkgDir()
         if (cachedComponentDir.length > currentComponentDir.length) {
-
+            let diffComponent = getDiff(currentComponentDir, cachedComponentDir)
         } 
         else if (cachedComponentDir.length < currentComponentDir.length) {
-
+            let diffComponent = getDiff(cachedComponentDir, currentComponentDir)
         }
     });
 }
 
-gulp.task('build', ['clean', 'copy', 'css'])
+
+
+function getDiff(shortArr = [], longArr = []) {
+    return longArr.filter(v => !shortArr.includes(v))
+}
+
+gulp.task('build', ['clean', 'copy', 'css'], () => {
+    util.log(isProd ? '打包模式:打包完成' : '开发模式:开始监听组件变化')
+})
