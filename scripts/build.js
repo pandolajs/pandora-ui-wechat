@@ -5,6 +5,7 @@ const autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] })
 const rename = require('gulp-rename')
 const cssmin = require('gulp-clean-css')
 const fs = require('fs-extra')
+const plumber = require('gulp-plumber')
 const config = require('./config')
 const util = require('./utils')
 const isProd = process.env.NODE_ENV === 'prod'
@@ -22,9 +23,8 @@ gulp.task('copy', () => {
 
 gulp.task('css', () => {
     return gulp.src(config.src + '/components/**/*.less')
-        .pipe(less({
-            plugins: [autoprefix]
-        }))
+        .pipe(plumber())
+        .pipe(less({plugins: [autoprefix]}))
         .pipe(cssmin())
         .pipe(rename((path) => {
             path.extname = '.wxss'
