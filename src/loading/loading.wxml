@@ -1,0 +1,31 @@
+<view wx:if="{{show}}" class="loading">
+	<view wx:if="{{type !== 'spinner' && type !== 'circle' && type !== 'ring'}}" class="{{type}}">
+		<view class="line1" style="background-color:{{color}}"></view>
+		<view class="line2" style="background-color:{{color}}"></view>
+		<view class="line3" style="background-color:{{color}}"></view>
+	</view>
+	<view wx:elif="{{type === 'ring'}}" class="{{type}}" style="{{styleStr}}">
+		<slot name="ring"></slot>
+	</view>
+	<view wx:elif="{{type === 'circle'}}" class="circle-wrapper" style="{{styleStr}}" >
+		<view class="{{type}}">
+		</view>
+		<view class="wrapper">
+			<slot name="circle"></slot>
+		</view>
+	</view>
+	<view wx:else class="spinner" style="{{styleStr}}">
+		<view></view>
+	    <view></view>
+	    <view></view>
+	    <view></view>
+	    <view></view>
+	    <view></view>
+	    <view></view>
+	    <view></view>
+	   	<view></view>
+	    <view></view>
+	    <view></view>
+	    <view></view>
+	</view>
+</view>

@@ -1,8 +1,7 @@
 {
   "pages": [
     "pages/loading/loading",
-    "pages/index/index",
-    "pages/test/test"
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
