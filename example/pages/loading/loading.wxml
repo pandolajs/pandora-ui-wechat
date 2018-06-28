@@ -1,2 +1,23 @@
 <!--pages/loading/loading.wxml-->
-<loading></loading>
+<view class="container" style="padding: 20rpx">
+	type=jump
+	<view><loading show="{{true}}" type="{{'jump'}}"></loading></view>
+	type=scale
+	<view><loading show="{{true}}" type="{{'scale'}}" ></loading></view>
+	type=fadeIn
+	<view><loading show="{{true}}" type="{{'fadeIn'}}" ></loading></view>
+	type=spinner
+	<view><loading show="{{true}}" type="{{'spinner'}}" ></loading></view>
+	type=circle
+	<view>
+		<loading show="{{true}}" type="{{'circle'}}" styleStr="width: 100rpx;height: 100rpx;display:flex;align-items:center;justify-content:center;">
+			<view slot="circle" class="test">1231</view>
+		</loading>
+	</view>
+	type=circle
+	<view>
+		<loading show="{{true}}" type="{{'ring'}}" >
+			<image src="http://videoplayer.babytreeimg.com/momGroup-1ch07mh4l19ki1ks91od3cfj4i99.png" style="width: 100%;height: 100%;border-radius:100%;"/>
+		</loading>
+	</view>
+</view>
