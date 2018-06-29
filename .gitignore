@@ -9,5 +9,4 @@ package-lock.json
 *.log*
 .cache
 .vscode
-example/components
 

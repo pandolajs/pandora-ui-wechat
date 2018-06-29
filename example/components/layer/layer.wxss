@@ -10,8 +10,10 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 850rpx 10rpx rgba(0, 0, 0, 0.8) inset;
   box-shadow: 0 0 850rpx 10rpx rgba(0, 0, 0, 0.8) inset;
   z-index: 1;
+  -webkit-transition: all 400ms ease-in-out;
   transition: all 400ms ease-in-out;
 }
 .m-layer.hidden {

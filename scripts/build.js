@@ -1,16 +1,15 @@
 const gulp = require('gulp')
 const less = require('gulp-less')
-const LessAutoprefix = require('less-plugin-autoprefix')
-const autoprefix = new LessAutoprefix({ browsers: ['last 5 versions'] , cascade: true})
 const rename = require('gulp-rename')
 const cssmin = require('gulp-clean-css')
+const autoprefixer = require('gulp-autoprefixer')
 const fs = require('fs-extra')
 const plumber = require('gulp-plumber')
 const config = require('./config')
 const util = require('./utils')
 const isProd = process.env.NODE_ENV === 'prod'
 const buildDir = isProd ? config.dist : config.example
-console.log(buildDir)
+
 gulp.task('clean', () => {
     fs.emptyDirSync(buildDir)
 })
@@ -20,9 +19,11 @@ gulp.task('copy', () => {
         .pipe(gulp.dest(buildDir))
 })
 
-
 gulp.task('css', () => {
-    let stream = gulp.src(config.src + '/**/*.less').pipe(plumber()).pipe(less({plugins: [autoprefix]}))
+    let stream = gulp.src(config.src + '/**/*.less').pipe(plumber()).pipe(less()).pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
     stream = isProd ? stream.pipe(cssmin()) : stream
     return stream.pipe(rename((path) => {
             path.extname = '.wxss'

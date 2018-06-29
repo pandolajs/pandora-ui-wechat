@@ -1,0 +1,17 @@
+<!--
+  @fileoverview 抽屉组件模板
+  @author houquan | houquan@babytree-inc.com
+  @version 1.0.0 | 2018-04-12    // 初始版本
+-->
+<layer show='{{show}}' 
+  tapCloseable='{{tapLayerCloseable}}' 
+  bind:layershow='onLayerShowHandler'>
+  <view class='m-drawer-container {{position}}{{show ? " open" : ""}}' 
+    catch:tap='onTapHandler'
+    bind:transitionend='onTransitionendHandler'
+    catch:touchmove='onDrawerTouchMoveHandler'>
+    <view class='close-btn {{closeIconNew ? " close-btn-new": ""}}' wx:if='{{closeable}}'
+      catch:tap='onCloseTapHandler'></view>
+    <slot></slot>
+  </view>
+</layer>
