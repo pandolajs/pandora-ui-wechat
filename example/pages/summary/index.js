@@ -1,21 +1,22 @@
-// pages/loading/loading.js
+// pages/summary/index.js
+import list from '../../des.js'
+console.log(list)
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    styleObj: {
-      width: '100rpx',
-      height:'100rpx'
-    }
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      list: list
+    })
   },
 
   /**

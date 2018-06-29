@@ -1,14 +1,14 @@
-// pages/loading/loading.js
+// pages/flex/flex.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    styleObj: {
-      width: '100rpx',
-      height:'100rpx'
-    }
+    direction: 'ltr',
+    wrap: 'wrap',
+    main: 'normal',
+    cross: "normal"
   },
 
   /**
@@ -65,5 +65,22 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  setDir(e) {
+    let values = ['ltr', 'rtl', 'ttb', 'btt', 'start', 'center', 'between', 'around', 'evenly', 'stretch', 'center', 'start', 'end', 'nowrap','wrap',  'reverse-wrap']
+    let index = e.target.dataset.index
+    let value = values[index]
+    let dir = (index >= 0 && index < 4) ? value : this.data.direction
+    let main = (index >= 4 && index < 9) ? value : this.data.main
+    let cross = (index >= 9 && index < 13) ? value : this.data.cross
+    let wrap = (index >= 13 && index < 16) ? value : this.data.wrap
+    console.log(dir, main, cross, wrap)
+    this.setData({
+      direction: dir ,
+      main,
+      cross,
+      wrap
+    })
   }
 })

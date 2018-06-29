@@ -1,0 +1,10 @@
+/* pages/summary/index.wxss */
+navigator {
+  padding: 15rpx;
+  border-top: 1px #ddd solid;
+  background-color: #fec444;
+  color: #eee;
+}
+navigator:last-child {
+  border-bottom: 1px #ddd solid;
+}

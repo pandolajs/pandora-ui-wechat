@@ -1,0 +1,28 @@
+/* pages/flex/flex.wxss */
+.container {
+	margin: 10rpx;
+	background-color: #53caff;
+	padding: 20rpx;
+	border: 1px #555 solid;
+	border-radius: 5rpx;
+	box-shadow: 5rpx 4rpx 3rpx #ddd;
+}
+.stage {
+	display: block;
+	height: 200rpx;
+}
+.block {
+	width: 100rpx;
+	height: 100rpx;
+	background-color:orange;
+	margin: 10rpx;
+}
+button {
+	display: inline-block;
+	width: 140rpx;
+	height: 50rpx;
+	font-size: 20rpx;
+	background-color: #5a3308;
+	color: #fff;
+	margin: 2rpx;
+}

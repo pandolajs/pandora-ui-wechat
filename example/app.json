@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/summary/index",
+    "pages/flex/flex",
     "pages/loading/loading",
     "pages/index/index"
   ],
