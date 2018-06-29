@@ -35,6 +35,29 @@
 ```
 - 使用小程序ide新建项目，选择example，即可开启实时预览
 
+## TODO
+
+- [ ] Badge
+
+- [ ] Button
+
+- [ ] Capsule
+
+- [ ] Cell
+
+- [ ] Panel
+
+- [ ] Tab
+
+- [ ] Tag
+
+- [ ] DatePicker
+
+- [ ] ActionPicker
+
+- ...
+
+
 ## LICENCE
 
 MIT License
