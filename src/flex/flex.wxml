@@ -1,0 +1,3 @@
+<view bindtap="onclick" class="flex {{direction}} {{wrap}} main-{{main}} cross-{{cross}}">
+	<slot></slot>
+</view>

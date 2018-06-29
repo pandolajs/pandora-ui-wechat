@@ -1,0 +1,4 @@
+<!--pages/summary/index.wxml-->
+<navigator wx:for="{{list}}" url='{{item.url}}'>
+  {{item.name}} {{item.des}}
+</navigator>

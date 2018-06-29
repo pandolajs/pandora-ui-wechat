@@ -1,186 +1,192 @@
 .loading {
-    .jump,
-    .scale,
-    .fadeIn {
-        view {
-            display: inline-block;
-            width: 6rpx;
-            height: 40rpx;
-        }
-        view:not(:first-child) {
-            margin-left: 15rpx;
-        }
+  .jump,
+  .scale,
+  .fadeIn {
+    view {
+      display: inline-block;
+      width: 6rpx;
+      height: 40rpx;
+      background-color: orange;
     }
-    .jump {
-        view {
-            animation: jump 0.5s linear infinite;
-        }
-        .line2 {
-            animation-delay: -0.4s;
-        }
-        .line3 {
-            animation-delay: -0.1s;
-        }
+    view:not(:first-child) {
+      margin-left: 15rpx;
     }
-    .scale {
-        view {
-            animation: scale 0.5s linear infinite;
-        }
-        .line2 {
-            animation-delay: -0.4s;
-        }
-        .line3 {
-            animation-delay: -0.3s;
-        }
+  }
+  .jump {
+    view {
+      animation: jump 0.5s linear infinite;
     }
-    .fadeIn {
-        view {
-            animation: fadeIn 1s linear infinite;
-        }
-        .line2 {
-            animation-delay: -0.5s;
-        }
-        .line3 {
-            animation-delay: 0.75s;
-        }
+    .line2 {
+      animation-delay: -0.4s;
     }
-    .circle-wrapper {
-        position: relative;
-        width: 30rpx;
-        height: 30rpx;
-        .circle {
-            width: 100%;
-            height: 100%;
-            border-radius: 100%;
-            border: 2rpx #c9c9c9 solid;
-            border-top: 2rpx #666 solid;
-            animation: circle 1s linear infinite;
-        }
-        .wrapper {
-            position: absolute;
-            width: calc(90% - 2rpx);
-            height: calc(90% - 2rpx); // background-color: red;
-            line-height: 80rpx;
-        }
+    .line3 {
+      animation-delay: -0.1s;
     }
-    .ring {
-        position: relative;
+  }
+  .scale {
+    view {
+      animation: scale 0.5s linear infinite;
+    }
+    .line2 {
+      animation-delay: -0.4s;
+    }
+    .line3 {
+      animation-delay: -0.3s;
+    }
+  }
+  .fadeIn {
+    view {
+      animation: fadeIn 1s linear infinite;
+    }
+    .line2 {
+      animation-delay: -0.5s;
+    }
+    .line3 {
+      animation-delay: 0.75s;
+    }
+  }
+  .circle-wrapper {
+    position: relative;
+    width: 30rpx;
+    height: 30rpx;
+    .circle {
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+      border: 2rpx #c9c9c9 solid;
+      border-top: 2rpx #666 solid;
+      animation: circle 1s linear infinite;
+    }
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-radius: 100%;
+      top: 2rpx;
+      left: 2rpx;
+    }
+  }
+  .ring {
+    position: relative;
+    background: #fff;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100%;
+    border: 10rpx solid #19bee1;
+    &:after {
+      content: "";
+      background: trasparent;
+      width: 140%;
+      height: 140%;
+      position: absolute;
+      border-radius: 100%;
+      top: -20%;
+      left: -20%;
+      opacity: 0.7;
+      box-shadow: rgba(255, 255, 255, 0.6) -4rpx -5rpx 3rpx -3rpx;
+      animation: circle 2s infinite linear;
+    }
+  }
+  .spinner {
+    position: relative;
+    width: 70rpx;
+    height: 70rpx;
+    view {
+      position: absolute;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      text-align: center;
+      &:after {
+        content: "";
         background: #fff;
-        width: 100rpx;
-        height: 100rpx;
-        border-radius: 100%;
-        border: 10rpx solid #19bee1;
-        &:after {
-            content: '';
-            background: trasparent;
-            width: 140%;
-            height: 140%;
-            position: absolute;
-            border-radius: 100%;
-            top: -20%;
-            left: -20%;
-            opacity: 0.7;
-            box-shadow: rgba(255, 255, 255, 0.6) -4rpx -5rpx 3rpx -3rpx;
-            animation: circle 2s infinite linear;
-        }
-    }
-    .spinner {
-        position: relative;
-        width: 70rpx;
-        height: 70rpx;
-        view {
-            position: absolute;
-            display: inline-block;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            text-align: center;
-            &:after {
-                content: '';
-                background: #fff;
-                height: 30%;
-                display: block;
-                width: 4rpx;
-                border-radius: 2rpx;
-                margin: 0 auto;
-            }
-            .generator (@i: 1;
+        height: 30%;
+        display: block;
+        width: 4rpx;
+        border-radius: 2rpx;
+        margin: 0 auto;
+      }
+      .generator (@i: 1;
             @len: 12) when (@i <=@len) {
-                &:nth-child(@{i}) {
-                    transform: rotate(30deg * @i);
-                    animation: spinner 1.2s linear infinite 0.1s * @i;
-                    animation-timing-function: steps(12);
-                }
-                .generator(@i + 1)
-            }
-            .generator;
+        &:nth-child(@{i}) {
+          transform: rotate(30deg * @i);
+          animation: spinner 1.2s linear infinite 0.1s * @i;
+          animation-timing-function: steps(12);
         }
+        .generator(@i + 1);
+      }
+      .generator;
     }
+  }
 }
 
 @keyframes jump {
-    0% {
-        transform: rotate(0rpx);
-    }
-    20% {
-        transform: translateY(30%);
-    }
-    40% {
-        transform: translateY(0rpx);
-    }
-    60% {
-        transform: translateY(-30%);
-    }
-    100% {
-        transform: translateY(0rpx);
-    }
+  0% {
+    transform: rotate(0rpx);
+  }
+  20% {
+    transform: translateY(30%);
+  }
+  40% {
+    transform: translateY(0rpx);
+  }
+  60% {
+    transform: translateY(-30%);
+  }
+  100% {
+    transform: translateY(0rpx);
+  }
 }
 
 @keyframes scale {
-    0% {
-        transform: scaleY(0.5);
-    }
-    50% {
-        transform: scaleY(1.2);
-    }
-    100% {
-        transform: scaleY(0.5);
-    }
+  0% {
+    transform: scaleY(0.5);
+  }
+  50% {
+    transform: scaleY(1.2);
+  }
+  100% {
+    transform: scaleY(0.5);
+  }
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 1;
-    }
-    25% {
-        opacity: 0.5;
-    }
-    50% {
-        opacity: 0;
-    }
-    75% {
-        opacity: 0.5;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes circle {
-    0% {
-        transform: rotateZ(0deg);
-    }
-    100% {
-        transform: rotateZ(360deg);
-    }
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
 }
 
 @keyframes spinner {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

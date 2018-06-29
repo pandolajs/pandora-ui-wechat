@@ -12,13 +12,24 @@ Component({
       type: String,
       value: 'jump'
     },
-    color: {
-      type: String,
-      value: 'orange'
-    },
-    styleStr: {
-      type: String,
-      value: ''
+    styleObj: {
+      type: Object,
+      value: {},
+      observer: function(newVal) {
+        console.log(newVal)
+        if (newVal && typeof newVal === 'object') {
+          let style = ''
+          for(let prop in newVal) {
+            style += `${prop}:${newVal[prop]};`
+          }
+          this.setData({
+            styleStr: style
+          })
+        }
+      }
     }
+  },
+  data: {
+    styleStr: ''
   }
 })

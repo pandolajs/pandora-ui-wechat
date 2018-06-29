@@ -10,8 +10,8 @@
 	<view><loading show="{{true}}" type="{{'spinner'}}" ></loading></view>
 	type=circle
 	<view>
-		<loading show="{{true}}" type="{{'circle'}}" styleStr="width: 100rpx;height: 100rpx;display:flex;align-items:center;justify-content:center;">
-			<view slot="circle" class="test">1231</view>
+		<loading show="{{true}}" type="{{'circle'}}" styleObj="{{styleObj}}">
+			<image slot="circle" src="http://videoplayer.babytreeimg.com/momGroup-1ch07mh4l19ki1ks91od3cfj4i99.png" style="width: 50rpx;height: 50rpx;border-radius:100%;"/>
 		</loading>
 	</view>
 	type=circle
