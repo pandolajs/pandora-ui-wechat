@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+/**
+ * @description 组件库辅助工具 快速生成组件初始文件 示例文件
+ * @author jialong
+ * @DateTime 2018/07/02
+ */
+
 
 const util = require('./utils')
 const config = require('./config')
@@ -9,8 +15,12 @@ if (params.length <= 2) {
 }
 let componentName = process.argv[2]
 let componentDes = process.argv[3]
+let componentDirName = `${config.src}/${componentName}`
+let expComponentDirName = `${config.example}/${componentName}`
+let pageDirName = `${config.exampleDir}/pages/${componentName}`
+
 util.log(`you will create ${componentName} component!`)
-fs.readdir(`${config.src}/${componentName}`).then(res => {
+fs.readdir(componentDirName).then(res => {
     util.warn(`already exist ${componentName} component`)
 }).catch(err => {
     util.log(`new component`)
@@ -18,27 +28,31 @@ fs.readdir(`${config.src}/${componentName}`).then(res => {
 })
 
 function createComponent() {
-    fs.copy(config.tempPkg, `${config.src}/${componentName}`).then(res => {
+    fs.copy(config.tempPkg, componentDirName).then(res => {
         util.log(`${componentName} created!`)
     }).catch(err => {
         util.warn('create component error！')
     })
-    util.log(config.tempPage, `${config.exampleDir}/pages/${componentName}`)
-    fs.copy(config.tempPage, `${config.exampleDir}/pages/${componentName}`).then(res => {
+    fs.copy(config.tempPage, pageDirName).then(res => {
         util.log(`${componentName} example created!`)
         // modify app.json
-        writeAppJson()
+        modifyAppJson()
+        // modify index.json
+        modifyPageJson()
         // modify des
         modifyDescribe()
+        fs.writeFile(`${componentDirName}/index.wxml`, `<view>${componentName}</view>`, (err) => {
+            util.log('modify wxml!')
+        })
+
     }).catch(err => {
         util.warn('create example error！')
     })
 }
 
-function writeAppJson() {
+function modifyAppJson() {
     fs.readJson(`${config.exampleDir}/app.json`).then(obj => {
-        let nameArr = [`pages/${componentName}/index`]
-        obj.pages = nameArr.concat(obj.pages)
+        obj.pages.push(`pages/${componentName}/index`)
         fs.writeJson(`${config.exampleDir}/app.json`, obj).then(res => {
             util.log('write success!')
         }).catch(err => {
@@ -46,6 +60,19 @@ function writeAppJson() {
         })
     }).catch(err => {
         util.warn('read app.json occured a error!')
+    })
+}
+
+function modifyPageJson() {
+    fs.readJson(`${pageDirName}/index.json`).then(obj => {
+        obj.usingComponents[`${componentName}`] = `../../components/${componentName}/index`
+        fs.writeJson(`${pageDirName}/index.json`, obj).then(res => {
+            util.log('write index.json success!')
+        }).catch(err => {
+            util.warn('write index.json occured a error！')
+        })
+    }).catch(err => {
+        util.warn('read index.json occured a error!')
     })
 }
 
@@ -67,3 +94,8 @@ function modifyDescribe() {
         })
     })
 }
+
+
+
+
+

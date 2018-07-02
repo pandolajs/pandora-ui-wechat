@@ -11,6 +11,8 @@ const mode = process.env.NODE_ENV
 const isProd = (mode === 'prod')
 const buildDir = isProd ? config.dist : config.example
 
+util.log(buildDir)
+
 gulp.task('clean', () => {
     fs.emptyDirSync(buildDir)
 })
