@@ -7,7 +7,8 @@ const fs = require('fs-extra')
 const plumber = require('gulp-plumber')
 const config = require('./config')
 const util = require('./utils')
-const isProd = process.env.NODE_ENV === 'prod'
+const mode = process.env.NODE_ENV
+const isProd = (mode === 'prod')
 const buildDir = isProd ? config.dist : config.example
 
 gulp.task('clean', () => {
@@ -31,27 +32,18 @@ gulp.task('css', () => {
         .pipe(gulp.dest(buildDir))
 })
 
-
-// let cachedComponentDir = util.getPkgDir()
-if (!isProd) {
-    var watcher = gulp.watch(config.src + '/**/*.*', ['build']);
+if (mode === "dev") {
+    var watcher = gulp.watch(config.src + '/**/*', ['build']);
     watcher.on('change', function(event) {
-        // let currentComponentDir = util.getPkgDir()
-        // if (cachedComponentDir.length > currentComponentDir.length) {
-        //     let diffComponent = getDiff(currentComponentDir, cachedComponentDir)
-        // } 
-        // else if (cachedComponentDir.length < currentComponentDir.length) {
-        //     let diffComponent = getDiff(cachedComponentDir, currentComponentDir)
-        // }
+        console.log(event.type)
     });
 }
 
-
-
-// function getDiff(shortArr = [], longArr = []) {
-//     return longArr.filter(v => !shortArr.includes(v))
-// }
-
 gulp.task('build', ['clean', 'copy', 'css'], () => {
-    util.log(isProd ? '打包模式:打包完成' : '开发模式:开始监听组件变化')
+    if (mode === 'dev') {
+        util.log('开发模式:开始监听组件变化')
+    }
+    else if (mode === 'prod') {
+        util.log('打包模式:打包完成')
+    }
 })
