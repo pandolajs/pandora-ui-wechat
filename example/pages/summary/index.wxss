@@ -1,10 +1,29 @@
 /* pages/summary/index.wxss */
+page {
+  background-color: #eee;
+}
 navigator {
   padding: 15rpx;
-  border-top: 1px #ddd solid;
-  background-color: #fec444;
-  color: #eee;
+  border-top: 1px #f8f8f8 solid;
+  background-color: rgba(142, 152, 40, 0.18);
+  color: #666;
+  font-size: 28rpx;
 }
 navigator:last-child {
-  border-bottom: 1px #ddd solid;
+  border-bottom: 1px #f8f8f8 solid;
+}
+.logo {
+  position: relative;
+  display: block;
+  width: 200rpx;
+  max-height: 200rpx;
+  border-radius:100%; 
+  border: 5px #6faf6e solid;
+  margin: 50rpx auto;
+  box-shadow: 5rpx 15rpx 16rpx #666;
+}
+.logo:after {
+  position: absolute;
+  /* content: 'light'; */
+  top: 0rpx;
 }

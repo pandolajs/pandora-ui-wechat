@@ -1,4 +1,5 @@
 <!--pages/summary/index.wxml-->
+<image class='logo' mode='aspectFit' src='./logo.png'></image>
 <navigator wx:for="{{list}}" url='{{item.url}}'>
   {{item.name}} {{item.des}}
 </navigator>
