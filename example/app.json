@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/summary/index",
-    "pages/flex/flex",
-    "pages/loading/loading",
-    "pages/index/index"
+    "pages/flex/index",
+    "pages/loading/index",
+    "pages/drawer/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

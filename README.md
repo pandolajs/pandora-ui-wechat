@@ -35,6 +35,14 @@
 ```
 - 使用小程序ide新建项目，选择example，即可开启实时预览
 
+## 参与开发
+
+```
+	git clone https://github.com/pandolajs/pandora-ui-wechat.git
+	cd pandora-ui-wechat
+	create component componentdes  // 新增组件和组件描述
+```
+
 ## TODO
 
 - [ ] Badge

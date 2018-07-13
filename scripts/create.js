@@ -9,9 +9,10 @@
 const util = require('./utils')
 const config = require('./config')
 const fs = require('fs-extra')
-let params = process.argv
+const params = process.argv
 if (params.length <= 2) {
     util.warn('please input your component name and description!')
+    return
 }
 let componentName = process.argv[2]
 let componentDes = process.argv[3]
@@ -20,6 +21,7 @@ let expComponentDirName = `${config.example}/${componentName}`
 let pageDirName = `${config.exampleDir}/pages/${componentName}`
 
 util.log(`you will create ${componentName} component!`)
+
 fs.readdir(componentDirName).then(res => {
     util.warn(`already exist ${componentName} component`)
 }).catch(err => {
@@ -43,7 +45,11 @@ function createComponent() {
         modifyDescribe()
         fs.writeFile(`${componentDirName}/index.wxml`, `<view>${componentName}</view>`, (err) => {
             if (err) util.log('modify wxml occured a error！')
-            util.log('modify wxml!')
+            util.log('modify component wxml!')
+        })  
+        fs.writeFile(`${pageDirName}/index.wxml`, `<${componentName}></${componentName}>`, (err) => {
+            if (err) util.log('modify example wxml occured a error！')
+            util.log('modify example wxml!')
         })
 
     }).catch(err => {
@@ -90,7 +96,7 @@ function modifyDescribe() {
         })
         fs.writeFile(`${config.exampleDir}/des.js`, `export default ${JSON.stringify(desArr, null, 4)}`, (err) => {
             if (err) util.warn('write des.js occured a error！')
-            util.log('write des.js success！')
+            util.log('modify des.js success！')
             util.log('finish!')
         })
     })
