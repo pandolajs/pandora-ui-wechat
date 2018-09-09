@@ -37,26 +37,29 @@
 
 ## TODO
 
-- [ ] Badge
+- [ ] Flex  -  sizhao
 
-- [ ] Button
+- [ ] Grid  - cheerylong
 
-- [ ] Capsule
+- [ ] Cell  - sizhao
 
-- [ ] Cell
+- [ ] Toast  - cheerylong
 
-- [ ] Panel
+- [ ] Picker  - sizhao
 
-- [ ] Tab
+- [ ] Badge  - cheerylong
 
-- [ ] Tag
+- [ ] Button  - sizhao
 
-- [ ] DatePicker
+- [ ] Panel  - cheerylong
 
-- [ ] ActionPicker
+- [ ] Tab  - sizhao
 
-- ...
+- [ ] Tag  - cheerylong
 
+- [ ] Address-Picker  - sizhao
+
+- [ ] Date-Picker  - cheerylong
 
 ## LICENCE
 
